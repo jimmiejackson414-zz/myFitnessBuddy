@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\User;
+
 class UserController extends Controller
 {
     /**
@@ -15,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+        return view('users', compact('users'));
     }
 
     /**
@@ -47,8 +51,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        var_export($user);
     }
+
+    return view('user', $user);
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +65,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        print_r($id);
+        return view('edit', compact('user'));
     }
 
     /**
@@ -70,7 +79,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        public function update(Request $request, $id)
+    {
+        var_export($id);
+        var_export($request->name);
+        $user = User::find($id);
+        if($request->name != '')
+        {
+            $user->name = $request->name;
+        }
+        $user->save();
+
+        return redirect()->action('UserController@show', [$id]);
+}
     }
 
     /**
