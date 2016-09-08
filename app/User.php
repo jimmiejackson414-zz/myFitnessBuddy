@@ -24,3 +24,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 }
+public function meals(){
+    return $this->hasMany(Meals::class);
+}
