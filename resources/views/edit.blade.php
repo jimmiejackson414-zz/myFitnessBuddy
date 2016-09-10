@@ -9,7 +9,13 @@
 
                 <div class="panel-body">
                     <form action="/user/{{$user->id}}" method="POST">
+
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+
                         Name: <input type="text" value="{{$user->name}}" />
+                        Email: <input type='email' name='email' value='{{$user->email}}' />
+                        <input type='submit' value='Update' />
                     </form>
                 </div>
             </div>

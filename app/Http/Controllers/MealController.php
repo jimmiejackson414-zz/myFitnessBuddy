@@ -1,11 +1,12 @@
 <?php
-namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\User;
-use App\Meals;
 
-class UserController extends Controller
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
+class MealController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users', compact('users'));
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,6 +27,7 @@ class UserController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,6 +38,7 @@ class UserController extends Controller
     {
         //
     }
+
     /**
      * Display the specified resource.
      *
@@ -44,11 +47,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        $meals = $user->meal();
-        // var_export($user);
-        return view('user', compact('user', 'meals'));
+        //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,10 +58,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        // print_r($id);
-        return view('edit', compact('user'));
+        //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -70,21 +70,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // var_export($id);
-        // var_export($request->name);
-        $user = User::find($id);
-        if($request->name != '')
-            {
-                $user->name = $request->name;
-            }
-
-        if($request->email != ''){
-            $user->email = $request->email;
-        }
-        $user->save();
-
-        return redirect()->action('UserController@show', [$id]);
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *

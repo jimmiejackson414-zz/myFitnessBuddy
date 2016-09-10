@@ -1,6 +1,7 @@
 <?php
 namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Meals;
 class User extends Authenticatable
 {
     /**
@@ -20,6 +21,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function meal(){
-    return $this->hasMany(Meal::class);
+    return $this->hasMany(Meals::class);
     }
 }

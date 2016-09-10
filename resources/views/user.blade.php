@@ -12,9 +12,9 @@
                     <p> {{ $user->email }}</p>
 
                     <ul>
-                        @foreach($snippets as $snippet)
+                        @foreach($meals as $meal)
                             <li>
-                                <p>{{$snippet->snippet}}</p>
+                                <p>{{$meal->meal}}</p>
                             </li>
                         @endforeach
                     </ul>
