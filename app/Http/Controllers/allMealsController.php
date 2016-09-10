@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Meal;
-
-use App\User;
-
-class MealController extends Controller
+class allMealsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +15,8 @@ class MealController extends Controller
      */
     public function index()
     {
-        return view('addmeal');
+        $meals = Meals::all();
+        return view('allmeals', compact('allmeals'));
         
     }
 
@@ -30,8 +27,7 @@ class MealController extends Controller
      */
     public function create()
     {
-        $user = User::find(1);
-        return view('addmeal/create', compact('user'));
+        //
     }
 
     /**
@@ -53,10 +49,7 @@ class MealController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        $meal = $user->meal();
-
-        return view('addmeal', compact('user', 'meal'));
+        //
     }
 
     /**

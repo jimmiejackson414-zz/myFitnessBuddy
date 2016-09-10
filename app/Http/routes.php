@@ -23,6 +23,5 @@ Route::resource('/users', 'UserController');
 
 Route::resource('/user', 'UserController');
 
-Route::get('/addmeal', 'MealController@index');
+Route::resource('/addmeal', 'MealController');
 
-Route::get('/allmeals', 'MealController@index');
