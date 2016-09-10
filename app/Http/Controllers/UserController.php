@@ -1,13 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
 use App\User;
-
 class UserController extends Controller
 {
     /**
@@ -18,10 +13,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-
         return view('users', compact('users'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +24,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +34,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -52,11 +43,10 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $meal = $user->meal;
         var_export($user);
+        return view('user', compact('user', 'meal'));
     }
-
-    return view('user', $user);
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,7 +59,6 @@ class UserController extends Controller
         print_r($id);
         return view('edit', compact('user'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -79,21 +68,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        public function update(Request $request, $id)
-    {
-        var_export($id);
+        ar_export($id);
         var_export($request->name);
         $user = User::find($id);
         if($request->name != '')
-        {
-            $user->name = $request->name;
-        }
-        $user->save();
-
+            {
+                $user->name = $request->name;
+            }
+            $user->save();
         return redirect()->action('UserController@show', [$id]);
-}
     }
-
     /**
      * Remove the specified resource from storage.
      *

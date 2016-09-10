@@ -8,7 +8,16 @@
                 <div class="panel-heading">User Info</div>
 
                 <div class="panel-body">
-                    <p> {{ $name }}</p>
+                    <p> {{ $user->name }}</p>
+                    <p> {{ $user->email }}</p>
+
+                    <ul>
+                        @foreach($snippets as $snippet)
+                            <li>
+                                <p>{{$snippet->snippet}}</p>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
